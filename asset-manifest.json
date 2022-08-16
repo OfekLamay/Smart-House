@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/Smart-House/static/css/main.7ff1aee3.css",
-    "main.js": "/Smart-House/static/js/main.9d5fd72e.js",
+    "main.js": "/Smart-House/static/js/main.79e31773.js",
     "static/media/lampOn.png": "/Smart-House/static/media/lampOn.0c8957f3073be14bd840.png",
-    "static/media/stereoOff.png": "/Smart-House/static/media/stereoOff.b0219b70d9abab2967ca.png",
-    "static/media/stereoOn.png": "/Smart-House/static/media/stereoOn.aaf09d1dca93975293b4.png",
-    "static/media/lampOff.png": "/Smart-House/static/media/lampOff.413fc55cd8613ae1cf32.png",
-    "static/media/boilerOff.png": "/Smart-House/static/media/boilerOff.c84b09e9815822a6e3b4.png",
-    "static/media/boilerOn.png": "/Smart-House/static/media/boilerOn.747e85ee8d4614023d07.png",
-    "static/media/Air ConditionerOn.png": "/Smart-House/static/media/Air ConditionerOn.9d3c3cd1af1749df0ed0.png",
-    "static/media/Air ConditionerOff.png": "/Smart-House/static/media/Air ConditionerOff.c3fef81f2400f4d7a013.png",
+    "static/media/lampOff.png": "/Smart-House/static/media/lampOff.d99b9241805ff966a664.png",
+    "static/media/stereoOff.png": "/Smart-House/static/media/stereoOff.83065deec456bf8d047c.png",
+    "static/media/boilerOn.png": "/Smart-House/static/media/boilerOn.b43b66e331deb5faf2fd.png",
+    "static/media/boilerOff.png": "/Smart-House/static/media/boilerOff.c55f1712a725dde67803.png",
+    "static/media/stereoOn.png": "/Smart-House/static/media/stereoOn.1436cc5f40573f959286.png",
+    "static/media/Air ConditionerOff.png": "/Smart-House/static/media/Air ConditionerOff.646655af12fb2c46f500.png",
+    "static/media/Air ConditionerOn.png": "/Smart-House/static/media/Air ConditionerOn.c3e6c4ae934c91b1aaf2.png",
     "index.html": "/Smart-House/index.html",
     "main.7ff1aee3.css.map": "/Smart-House/static/css/main.7ff1aee3.css.map",
-    "main.9d5fd72e.js.map": "/Smart-House/static/js/main.9d5fd72e.js.map"
+    "main.79e31773.js.map": "/Smart-House/static/js/main.79e31773.js.map"
   },
   "entrypoints": [
     "static/css/main.7ff1aee3.css",
-    "static/js/main.9d5fd72e.js"
+    "static/js/main.79e31773.js"
   ]
 }
