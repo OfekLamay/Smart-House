@@ -7,16 +7,10 @@ export default function RoomPreview(props) {
 
     let roomStyle = {
         backgroundColor: props.roomInfo.color,
-        fontSize: "35px",
-        width: "25%",
-        margin: "15px",
-        fontWeight: "bold",
-        cursor: "pointer",
-        border: '2px solid black'
     };
 
   return (
-    <div onClick={() => navigate(`/room${props.roomInfo.name}`)} style={roomStyle}>
+    <div className='roomPreview' onClick={() => navigate(`/room${props.roomInfo.name}`)} style={roomStyle}>
 
         {props.roomInfo.name}
         <br />

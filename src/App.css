@@ -47,18 +47,6 @@ h1 {
   margin: auto;
 }
 
-.addRoom {
-  cursor: pointer;
-  background-color: rgb(135, 147, 235);
-  font-size: 270px;
-  font-weight: bold;
-  border: 3px solid black;
-  color: black;
-  width: 20%;
-  margin: auto;
-  border-radius: 100%;
-}
-
 .clickNav {
   cursor: pointer;
   background-color: rgb(22, 143, 219);
@@ -84,7 +72,7 @@ h1 {
   display: flex;
   flex-direction: column;
   text-align: center;
-  width: 30%;
+  width: 50%;
   margin:auto;
   min-height: 50px;
   height: 50%;
@@ -135,4 +123,167 @@ input {
   margin: 5px;
 }
 
+.roomPreview {
+  font-size: 35px;
+  width: 25%;
+  margin: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid black;
+}
 
+.productStyle {
+  font-size: 20px;
+  margin: 15px;
+  font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 3px;
+}
+
+.productSize {
+  width: 100px;
+}
+
+@media (max-width: 450px) {
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .clickNav {
+    cursor: pointer;
+    background-color: rgb(22, 143, 219);
+    font-size: 20px;
+    color: white;
+    width: 100px;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 25px;
+  }
+
+  .addRoom {
+    cursor: pointer;
+    background-color: rgb(135, 147, 235);
+    font-size: 105px;
+    font-weight: bold;
+    border: 3px solid black;
+    color: black;
+    width: 40%;
+    margin: auto;
+    border-radius: 100%;
+  }
+
+  .selectOptions {
+    font-size: 25px;
+    background-color: rgb(190, 246, 107);
+    color: rgb(0, 0, 0);
+    border: 2px solid white;
+    width: fit-content;
+    margin: auto;
+  }
+
+  .inputLabel {
+    font-size: 15px;
+    text-align: center;
+    width: fit-content;
+    margin:auto;
+  }
+
+  .redBG {
+    font-size: 15px;
+    text-align: center;
+    width: fit-content;
+    margin:auto;
+    background-color: rgba(241, 38, 38, 0.5);
+  }
+  
+  .greenBG {
+    font-size: 15px;
+    text-align: center;
+    width: fit-content;
+    margin:auto;
+    background-color: rgba(38, 241, 143, 0.5);
+  }
+
+  .colorLabel {
+    font-size: 20px;
+    color: black;
+    width: fit-content;
+    margin: auto;
+  }
+
+  .clickbtn {
+    cursor: pointer;
+    background-color: rgb(22, 143, 219);
+    font-size: 25px;
+    color: white;
+    width: fit-content;
+    margin: auto;
+    border-radius: 25px;
+  }
+
+  .roomPreview {
+    font-size: 20px;
+    width: 32%;
+    margin: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid black;
+  }
+
+  .roomData {
+    font-size: 17px;
+    text-align: center;
+    width: fit-content;
+    margin:auto;
+  }
+  
+  .flexboxContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 70%;
+    margin: auto;
+    min-height: 50px;
+    height: 50%;
+  }
+
+  .productSize {
+    width: 60px;
+  }
+
+}
+
+@media (min-width: 700px) {
+
+  .addRoom {
+    cursor: pointer;
+    background-color: rgb(135, 147, 235);
+    font-size: 180px;
+    font-weight: bold;
+    border: 3px solid black;
+    color: black;
+    width: 30%;
+    margin: auto;
+    border-radius: 100%;
+  }
+
+}
+
+
+@media (min-width: 1000px) {
+
+  .addRoom {
+    cursor: pointer;
+    background-color: rgb(135, 147, 235);
+    font-size: 270px;
+    font-weight: bold;
+    border: 3px solid black;
+    color: black;
+    width: 20%;
+    margin: auto;
+    border-radius: 100%;
+  }
+
+}

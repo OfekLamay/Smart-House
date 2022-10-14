@@ -7,8 +7,8 @@ export default function Product(props) {
 
     useEffect(()=>{
         if (props.productInfo.active === true)
-        setStatus("On");
-      })
+            setStatus("On");
+      },[props.productInfo.active])
 
     const setBGColor = () => {
         if (props.productInfo.active === true)
@@ -25,18 +25,12 @@ export default function Product(props) {
     }
 
     let productStyle = {
-        fontSize: "20px",
-        margin: "15px",
-        fontWeight: "bold",
-        borderRadius: "20px",
-        cursor: "pointer",
         backgroundColor: setBGColor(),
     };
 
   return (
-    <div onClick={updateProduct} style={productStyle}>
-        <img src={require(`../public/${props.productInfo.product}${status}.png`)} alt='lamp' width={100}></img>
-        {/* {props.productInfo.product} */}
+    <div className='productStyle' onClick={updateProduct} style={productStyle}>
+        <img className='productSize' src={require(`../public/${props.productInfo.product}${status}.png`)} alt={props.productInfo.product} ></img>
         
     </div>
   )
