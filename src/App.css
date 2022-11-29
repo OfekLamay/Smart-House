@@ -31,15 +31,6 @@ h1 {
   margin: auto;
 }
 
-.hide {
-  visibility: hidden;
-  height: 10px;
-}
-
-.show {
-  visibility: visible;
-}
-
 .colorLabel {
   font-size: 35px;
   color: black;
