@@ -1,11 +1,22 @@
 import React from 'react'
 import Product from './Product'
-import SelectPattern from './SelectPattern';
+import { useState } from 'react';
+import AddProduct from './AddProduct';
 
 export default function Room(props) {
 
-    const openAddRoomPart = () => {
-        document.getElementById('addItemsPart').className = 'show'
+    const [showAddProduct, setShowAddProduct] = useState(false)
+
+    const toggleAddRoomPart = () => {
+        if (!showAddProduct)
+        {
+            document.getElementById("addProductBtn").innerHTML = 'Close add product'
+        }
+        else
+        {
+            document.getElementById("addProductBtn").innerHTML = 'Add product'
+        }
+        setShowAddProduct(!showAddProduct);
     } 
 
     const isProductValid = (product) => {
@@ -19,7 +30,10 @@ export default function Room(props) {
         if (product.type === "boiler")
         {
             if (props.roomData.roomType === "bathroom")
-                return true;
+                {
+
+                    return true
+                };
             return false;
         }
         
@@ -40,7 +54,6 @@ export default function Room(props) {
     }
 
     const checkAndAddProduct = () => {
-        document.getElementById('addItemsPart').className = 'hide';
 
         if (document.getElementById("itemSelect").value === "")
         {
@@ -58,20 +71,6 @@ export default function Room(props) {
             window.alert("Can't add the product to this room");
     }
 
-    const options = [
-        {value: "",
-        text: "Choose item"},
-        {value: "Air Conditioner",
-        text: "Air conditioner"},
-        {value: "lamp",
-        text: "Lamp"},
-        {value: "stereo",
-        text: "Stereo"},
-        {value: "boiler",
-        text: "Boiler"}
-    ]
-    const optionsData = {name: 'items', id:'itemSelect', options: options};
-
   return (
     <div>
         <div className='roomData'>
@@ -81,20 +80,15 @@ export default function Room(props) {
 
         <div id='products' className='flexboxContainer'>
             {props.roomData.roomProducts.map((product) => {
-                return <Product productInfo={product} roomData={props.roomData} toggleProduct={props.toggleProduct}/>
+                return <Product key={product.id} productInfo={product} roomData={props.roomData} toggleProduct={props.toggleProduct}/>
             })}
             <br/><br/>
         </div>
 
-        <button onClick={openAddRoomPart} className='clickbtn'>Add product</button>
+        <button id='addProductBtn' onClick={toggleAddRoomPart} className='clickbtn'>Add product</button>
         <br/><br/>
 
-        <div id='addItemsPart' className='hide'>
-            <SelectPattern data={optionsData}/>
-            <br/><br/>
-            <button onClick={checkAndAddProduct} className='clickbtn'>Add</button>
-        </div>
-        
+        {showAddProduct ? <AddProduct checkAndAddProduct={checkAndAddProduct} /> : null}
 
     </div>
   )

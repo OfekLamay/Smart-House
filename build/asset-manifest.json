@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Smart-House/static/css/main.d275bae2.css",
-    "main.js": "/Smart-House/static/js/main.b238084d.js",
+    "main.css": "/Smart-House/static/css/main.9db3c7e8.css",
+    "main.js": "/Smart-House/static/js/main.2767fe33.js",
     "static/media/lampOn.png": "/Smart-House/static/media/lampOn.0c8957f3073be14bd840.png",
     "static/media/lampOff.png": "/Smart-House/static/media/lampOff.d99b9241805ff966a664.png",
     "static/media/stereoOff.png": "/Smart-House/static/media/stereoOff.83065deec456bf8d047c.png",
@@ -11,11 +11,11 @@
     "static/media/Air ConditionerOff.png": "/Smart-House/static/media/Air ConditionerOff.646655af12fb2c46f500.png",
     "static/media/Air ConditionerOn.png": "/Smart-House/static/media/Air ConditionerOn.c3e6c4ae934c91b1aaf2.png",
     "index.html": "/Smart-House/index.html",
-    "main.d275bae2.css.map": "/Smart-House/static/css/main.d275bae2.css.map",
-    "main.b238084d.js.map": "/Smart-House/static/js/main.b238084d.js.map"
+    "main.9db3c7e8.css.map": "/Smart-House/static/css/main.9db3c7e8.css.map",
+    "main.2767fe33.js.map": "/Smart-House/static/js/main.2767fe33.js.map"
   },
   "entrypoints": [
-    "static/css/main.d275bae2.css",
-    "static/js/main.b238084d.js"
+    "static/css/main.9db3c7e8.css",
+    "static/js/main.2767fe33.js"
   ]
 }
