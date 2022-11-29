@@ -24,7 +24,7 @@ export default function AddRoom(props) {
 
     const isNameValid = e => {
         let input = e.target.value; 
-        if(input.length > 0 && input.length <= 5) {
+        if(input.length > 0 && input.length <= 6) {
             setName(input)
             setInputStyle('greenBG')
         } else {
@@ -34,7 +34,7 @@ export default function AddRoom(props) {
     }
 
     const createNewRoom = () => {
-        if (name.length > 0 && name.length <= 5)
+        if (name.length > 0 && name.length <= 6)
         {
             if (document.getElementById("roomSelect").value.toString() !== "")
             {
@@ -44,14 +44,13 @@ export default function AddRoom(props) {
                     color: document.getElementById("chooseColor").value.toString(),
                     roomProducts: []
                 });
+                navigate('/');
             }
             else
                 window.alert("Choose the room's type");
         }
         else
             window.alert("Unable to create a room with this name");
-        
-        navigate('/');
     }
 
   return (

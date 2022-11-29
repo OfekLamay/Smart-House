@@ -107,7 +107,7 @@ function App() {
         <NavBar />
         <Routes>
           {rooms.map((room) => {
-            return <Route path={`/room${room.name}`} element={<Room roomData={room} addProduct={addProduct} toggleProduct={changeProductActivity}/>} />
+            return <Route key={room.name} path={`/room${room.name}`} element={<Room roomData={room} addProduct={addProduct} toggleProduct={changeProductActivity}/>} />
           })}
           <Route path={'/'} element={<Home rooms={rooms}/>} />
           <Route path={'/addroom'} element={<AddRoom addRoom={addRoom} />} />

@@ -11,9 +11,7 @@ export default function RoomPreview(props) {
 
   return (
     <div className='roomPreview' onClick={() => navigate(`/room${props.roomInfo.name}`)} style={roomStyle}>
-
         {props.roomInfo.name}
-        <br />
     </div>
   )
 }

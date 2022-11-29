@@ -9,7 +9,7 @@ export default function Home(props) {
     <div>
         <div className='flexboxContainerLine'>
             {props.rooms.map((room) => {
-                return <RoomPreview roomInfo={room}/>
+                return <RoomPreview key={room.name} roomInfo={room}/>
             })}
         </div>
         <br /> <br />
