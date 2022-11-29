@@ -2,10 +2,12 @@ import React from 'react'
 import Product from './Product'
 import { useState } from 'react';
 import AddProduct from './AddProduct';
+import RoomPopup from './RoomPopup';
 
 export default function Room(props) {
 
     const [showAddProduct, setShowAddProduct] = useState(false)
+    const [showRoomInfo, setRoomInfo] = useState(false)
 
     const toggleAddRoomPart = () => {
         if (!showAddProduct)
@@ -19,6 +21,10 @@ export default function Room(props) {
         setShowAddProduct(!showAddProduct);
     } 
 
+    const toggleInfo = () => {
+        setRoomInfo(!showRoomInfo);
+    }
+
     const isProductValid = (product) => {
         // Max 1 stereo in each room
         // Boiler only in bathroom
@@ -30,10 +36,7 @@ export default function Room(props) {
         if (product.type === "boiler")
         {
             if (props.roomData.roomType === "bathroom")
-                {
-
-                    return true
-                };
+                return true;
             return false;
         }
         
@@ -75,7 +78,8 @@ export default function Room(props) {
     <div>
         <div className='roomData'>
             Room Name: {props.roomData.name} <br/><br/>
-            Room Type: {props.roomData.roomType} <br/><br/>
+            <button className='clickNav' onClick={toggleInfo}>Help</button> <br/><br/>
+            Room Type: {props.roomData.roomType} <br/>
         </div>
 
         <div id='products' className='flexboxContainer'>
@@ -89,6 +93,7 @@ export default function Room(props) {
         <br/><br/>
 
         {showAddProduct ? <AddProduct checkAndAddProduct={checkAndAddProduct} /> : null}
+        {showRoomInfo ? <RoomPopup close={toggleInfo} room = {props.roomData}/> : null}
 
     </div>
   )
