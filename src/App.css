@@ -115,14 +115,16 @@ h1 {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-color: rgba(47, 250, 254, 0.463);
+  background-color: rgba(47, 250, 254, 0.4);
 }
 
 .roomCloseLabel {
-  position: relative;
+  position: absolute;
+  cursor: pointer;
   text-align: right;
   font-size: 25px;
   font-weight: 600;
+  width: fit-content;
   right: 20px;
   top: 20px;
   height: fit-content;
@@ -191,6 +193,14 @@ input {
 
 .productSize {
   width: 100px;
+}
+
+.errorMessage {
+  margin: auto;
+  margin-top: 20px;
+  font-size: 30px;
+  font-weight: 600;
+  color: darkred;
 }
 
 @media (max-width: 450px) {
@@ -295,9 +305,17 @@ input {
     width: 60px;
   }
 
+  .errorMessage {
+    margin: auto;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    color: darkred;
+  }
+
 }
 
-@media (min-width: 700px) {
+@media (min-width: 450px) {
 
   .addRoom {
     cursor: pointer;
@@ -312,7 +330,6 @@ input {
   }
 
 }
-
 
 @media (min-width: 1000px) {
 
