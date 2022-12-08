@@ -40,7 +40,6 @@ export default function AddRoom(props) {
 
     const onlyValidInput = (input) => {
         
-        console.log(input.toString().codePointAt(0))
         for (let i = 0; i < input.toString().length; i++)
         {
             if (input.codePointAt(i) <= 47 ||

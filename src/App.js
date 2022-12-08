@@ -11,6 +11,17 @@ import Room from './components/Room';
 
 function App() {
 
+  const changeBackground = (color) => {
+    document.body.style.background = color;
+  }
+  
+  
+
+  if((new Date().toLocaleString().slice(11,13)) > 20)
+  {
+    document.body.style.background = "rgb(84, 147, 151)";
+  }
+
   const [rooms, setRooms] = useState([]);
 
   const addRoom = (room) => {
