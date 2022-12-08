@@ -10,11 +10,10 @@ export default function RoomPopup(props) {
   return (
     <div id='infoPopup' className='overlay' onClick={closePopUp}>
         <div className='roomInfo'>
-            <div className='roomCloseLabel' onClick={closePopUp}>X</div>
-            <br />
             <div className='roomNameLabel' onClick={(e) => {e.stopPropagation()}}>{props.room.name}</div>
             <br /> 
             <div className='roomDataLabel' onClick={(e) => {e.stopPropagation()}}>
+                <div className='roomCloseLabel' onClick={closePopUp}>X</div>
                 <p>This room type is {props.room.roomType}.
                 <br/>
                 You can place a maximum of 5 items in this room.
@@ -24,11 +23,11 @@ export default function RoomPopup(props) {
                 <br/>
                 Stereo (maximum of 1)
                 <br/>
-                Lamp
+                Lamps
                 <br/>
-                Air conditioner
+                Air conditioners
                 <br/>
-                { props.room.roomType === "bathroom" ? "Boiler" : null }
+                { props.room.roomType === "bathroom" ? "Boilers" : null }
                 
                 </p>
             </div>
