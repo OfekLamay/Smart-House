@@ -40,11 +40,12 @@ export default function AddRoom(props) {
 
     const onlyValidInput = (input) => {
         
+        console.log(input.toString().codePointAt(0))
         for (let i = 0; i < input.toString().length; i++)
         {
             if (input.codePointAt(i) <= 47 ||
             (input.codePointAt(i) >= 58 && input.codePointAt(i) <= 64) ||
-            (input.codePointAt(i) >= 91 && input.codePointAt(i) <= 97) || input.codePointAt(i) >= 123)
+            (input.codePointAt(i) >= 91 && input.codePointAt(i) <= 96) || input.codePointAt(i) >= 123)
             return false;
         }
 
