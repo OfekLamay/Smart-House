@@ -8,7 +8,9 @@ export default function Product(props) {
     useEffect(()=>{
         if (props.productInfo.active === true)
             setStatus("On");
-      },[props.productInfo.active])
+            if (props.productInfo.product === "stereo")
+                document.getElementById("myAudio").play()
+      },[])
 
     const setBGColor = () => {
         if (props.productInfo.active === true)
@@ -19,9 +21,17 @@ export default function Product(props) {
     const updateProduct = () => {
         props.toggleProduct(props.roomData, props.productInfo)
         if (status === "Off")
+        {
             setStatus("On");
+            if (document.getElementById("myAudio"))
+                document.getElementById("myAudio").play()
+        }
         else
+        {
             setStatus("Off");
+            if (document.getElementById("myAudio") && props.productInfo.product === "stereo")
+                document.getElementById("myAudio").pause()
+        }
     }
 
     let productStyle = {
@@ -31,7 +41,12 @@ export default function Product(props) {
   return (
     <div className='productStyle' onClick={updateProduct} style={productStyle}>
         <img className='productSize' src={require(`../public/${props.productInfo.product}${status}.png`)} alt={props.productInfo.product} ></img>
-        
+
+        {props.productInfo.product === "stereo" ? <div>
+            <audio loop id='myAudio' src={require('../public/music/BGMNightMarket.mp3')} type='audio/mpeg'/>
+        </div> 
+        : null}
+
     </div>
   )
 }
