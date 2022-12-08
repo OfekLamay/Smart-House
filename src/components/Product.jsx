@@ -7,9 +7,11 @@ export default function Product(props) {
 
     useEffect(()=>{
         if (props.productInfo.active === true)
+        {
             setStatus("On");
             if (props.productInfo.product === "stereo")
                 document.getElementById("myAudio").play()
+        }
       },[])
 
     const setBGColor = () => {
@@ -43,7 +45,7 @@ export default function Product(props) {
         <img className='productSize' src={require(`../public/${props.productInfo.product}${status}.png`)} alt={props.productInfo.product} ></img>
 
         {props.productInfo.product === "stereo" ? <div>
-            <audio loop id='myAudio' src={require('../public/music/BGMNightMarket.mp3')} type='audio/mpeg'/>
+            <audio autoPlay={false} loop id='myAudio' src={require('../public/music/BGMNightMarket.mp3')} type='audio/mpeg'/>
         </div> 
         : null}
 
