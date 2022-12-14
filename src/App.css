@@ -130,7 +130,7 @@ h1 {
   width: 100%;
   height: 100%;
   background-color: rgba(47, 250, 254, 0.4);
-  animation: fadeInFromBottom 2s ease-in-out;
+  animation: fadeInFromBottom 1s ease-in-out;
 }
 
 .roomCloseLabel {

@@ -10,8 +10,8 @@ import AddRoom from './components/AddRoom';
 import Room from './components/Room';
 
 function App() {
-
-  if((new Date().toLocaleString().slice(11,13)) > 20 || (new Date().toLocaleString().slice(11,13)) < 7)
+  
+  if((new Date().getHours()) > 20 || (new Date().getHours()) < 7)
   {
     document.body.style.background = "rgb(84, 147, 151)";
   }
