@@ -11,13 +11,7 @@ import Room from './components/Room';
 
 function App() {
 
-  const changeBackground = (color) => {
-    document.body.style.background = color;
-  }
-  
-  
-
-  if((new Date().toLocaleString().slice(11,13)) > 20)
+  if((new Date().toLocaleString().slice(11,13)) > 20 || (new Date().toLocaleString().slice(11,13)) < 7)
   {
     document.body.style.background = "rgb(84, 147, 151)";
   }
