@@ -116,7 +116,7 @@ h1 {
 
 @keyframes fadeInFromBottom {
   from
-  {top: 30%;
+  {top: 15%;
   opacity: 0;}
   to 
   {top: 0px;
