@@ -12,8 +12,6 @@ export default function AddProduct(props) {
         text: "Lamp"},
         {value: "stereo",
         text: "Stereo"},
-        // {value: "boiler",
-        // text: "Boiler"}
     ]
 
     if (props.roomType === 'bathroom')

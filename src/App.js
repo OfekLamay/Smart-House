@@ -10,7 +10,7 @@ import AddRoom from './components/AddRoom';
 import Room from './components/Room';
 
 function App() {
-  
+
   if((new Date().getHours()) > 20 || (new Date().getHours()) < 7)
   {
     document.body.style.background = "rgb(84, 147, 151)";
@@ -26,13 +26,14 @@ function App() {
       if (rooms[i].name === room.name)
       {
         window.alert("There is already a room with this name, please choose a different name");
-        return;
+        return false;
       }
     }
 
     // Name is OK
     setRooms([...rooms, room]);
-    window.alert("Room added!")
+    window.alert("Room added!");
+    return true;
   };
 
   const addProduct = (room, product) => {

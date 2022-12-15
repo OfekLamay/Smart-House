@@ -27,30 +27,19 @@ export default function Room(props) {
 
     const isProductValid = (product) => {
         // Max 1 stereo in each room
-        // Boiler only in bathroom
+        // Boiler only in bathroom - not an option unless the room's type is bathroom
         // Max 5 items in each room
 
         if (props.roomData.roomProducts.length === 5)
             return false;
-
-        if (product.type === "boiler")
-        {
-            if (props.roomData.roomType === "bathroom")
-                return true;
-            return false;
-        }
         
         if (product.type === "stereo")
         {
-            let stereoCount = 0;
-
             for (let i = 0; i < props.roomData.roomProducts.length; i++)
                 if (props.roomData.roomProducts[i].product === "stereo")
-                    stereoCount++
+                    return false
 
-            if (stereoCount < 1)
-                return true;
-            return false;
+            return true;
         }
 
         return true;

@@ -35,7 +35,6 @@ export default function AddRoom(props) {
             setName('')
             setInputStyle('redBG')
         }
-
     }
 
     const onlyValidInput = (input) => {
@@ -64,13 +63,16 @@ export default function AddRoom(props) {
         {
             if (document.getElementById("roomSelect").value.toString() !== "")
             {
-                props.addRoom({
+                if (props.addRoom({
                     name: name,
                     roomType: document.getElementById("roomSelect").value.toString(),
                     color: document.getElementById("chooseColor").value.toString(),
                     roomProducts: []
-                });
-                navigate('/');
+                })) {
+                navigate('/');}
+                else {
+                    setErrorMessage("Choose a different name");
+                }
             }
             else
             {
@@ -83,7 +85,6 @@ export default function AddRoom(props) {
             setErrorMessage("The room's name must have letters and can't be over 6 letters long");
             window.alert("Unable to create a room with this name");
         }
-            
     }
 
   return (
