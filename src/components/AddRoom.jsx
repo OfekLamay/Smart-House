@@ -1,6 +1,6 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
+import GeneralPopUp from './GeneralPopUp';
 import SelectPattern from './SelectPattern';
 
 export default function AddRoom(props) {
@@ -19,9 +19,15 @@ export default function AddRoom(props) {
         text: "Kitchen"}
     ]
     const optionsData = {name: 'rooms', id:'roomSelect', options: options};
-    const [name, setName] = useState('')
-    const [inputStyle, setInputStyle] = useState('inputLabel')
-    const [errorMessage, setErrorMessage] = useState("")
+    const [name, setName] = useState('');
+    const [inputStyle, setInputStyle] = useState('inputLabel');
+    const [errorMessage, setErrorMessage] = useState("");
+    const [showErrorPopUp, setShowErrorPopUp] = useState(false);
+    const [showRoomAdded, setShowRoomAdded] = useState(false);
+    const [popUpInfo, setPopUpInfo] = useState({
+        name: "Error!",
+        content: <p></p>
+    });
 
     const isNameValid = e => {
         let input = e.target.value; 
@@ -50,6 +56,10 @@ export default function AddRoom(props) {
         return true;
     }
 
+    const toggleError = () => {
+        setShowErrorPopUp(!showErrorPopUp)
+    }
+
     const createNewRoom = () => {
 
         if (!(onlyValidInput(document.getElementById("roomName").value.toString())))
@@ -69,21 +79,46 @@ export default function AddRoom(props) {
                     color: document.getElementById("chooseColor").value.toString(),
                     roomProducts: []
                 })) {
-                navigate('/');}
+                setShowRoomAdded(true);
+                setPopUpInfo({
+                    name: "Room Added!",
+                    content: <p>Room added successfully!
+                        <br/> Exit to go back to the home screen.
+                    </p>
+                })
+                }
                 else {
+                    setShowErrorPopUp(true);
+                    setPopUpInfo({
+                        name: "Error!",
+                        content: <p>This name is already being used.
+                            <br/> Please use a different name.
+                        </p>
+                    })
                     setErrorMessage("Choose a different name");
                 }
             }
             else
             {
+                setPopUpInfo({
+                    name: "Error!",
+                    content: <p>You must choose the room's type.
+                    </p>
+                })
                 setErrorMessage("Choose the room's type");
-                window.alert("Choose the room's type");
+                setShowErrorPopUp(true);
             }
         }
         else
         {
+            setPopUpInfo({
+                name: "Error!",
+                content: <p>You can't use this name.
+                    <br/> Please choose a name that uses only english letters and numbers and that its length isn't more than 6.
+                </p>
+            })
+            setShowErrorPopUp(true);
             setErrorMessage("The room's name must have letters and can't be over 6 letters long");
-            window.alert("Unable to create a room with this name");
         }
     }
 
@@ -100,6 +135,8 @@ export default function AddRoom(props) {
         <button onClick={createNewRoom} className='clickbtn'>Create</button>
 
         {errorMessage !== '' ? <div className='errorMessage'>{errorMessage}</div> : null}
+        {showErrorPopUp ? <GeneralPopUp info={popUpInfo} close={toggleError} /> : null}
+        {showRoomAdded ? <GeneralPopUp info={popUpInfo} close={()=>{navigate('/')}} /> : null}
         
     </div>
   )

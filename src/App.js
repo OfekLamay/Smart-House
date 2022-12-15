@@ -24,16 +24,13 @@ function App() {
     for (let i = 0; i< rooms.length; i++)
     {
       if (rooms[i].name === room.name)
-      {
-        window.alert("There is already a room with this name, please choose a different name");
         return false;
-      }
     }
 
     // Name is OK
     setRooms([...rooms, room]);
-    window.alert("Room added!");
     return true;
+    
   };
 
   const addProduct = (room, product) => {

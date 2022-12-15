@@ -2,7 +2,6 @@ import React from 'react'
 
 export default function RoomPopup(props) {
 
-
     const closePopUp = () => {
         props.close();
     }
@@ -28,7 +27,6 @@ export default function RoomPopup(props) {
                 Air conditioners
                 <br/>
                 { props.room.roomType === "bathroom" ? "Boilers" : null }
-                
                 </p>
             </div>
         </div>
