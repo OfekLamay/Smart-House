@@ -12,9 +12,13 @@ export default function AddProduct(props) {
         text: "Lamp"},
         {value: "stereo",
         text: "Stereo"},
-        {value: "boiler",
-        text: "Boiler"}
+        // {value: "boiler",
+        // text: "Boiler"}
     ]
+
+    if (props.roomType === 'bathroom')
+      options.push({value: "boiler", text: "Boiler"});
+
     const optionsData = {name: 'items', id:'itemSelect', options: options};
 
   return (

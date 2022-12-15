@@ -58,6 +58,8 @@ h1 {
   background-color: rgb(22, 143, 219);
   font-size: 35px;
   color: white;
+  padding-right: 7px;
+  padding-left: 7px;
   width: fit-content;
   margin: auto;
   border-radius: 35px;

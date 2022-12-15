@@ -92,7 +92,7 @@ export default function Room(props) {
         <button id='addProductBtn' onClick={toggleAddRoomPart} className='clickbtn'>Add product</button>
         <br/><br/>
 
-        {showAddProduct ? <AddProduct checkAndAddProduct={checkAndAddProduct} /> : null}
+        {showAddProduct ? <AddProduct roomType={props.roomData.roomType} checkAndAddProduct={checkAndAddProduct} /> : null}
         {showRoomInfo ? <RoomPopup close={toggleInfo} room = {props.roomData}/> : null}
 
     </div>
