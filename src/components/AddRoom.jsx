@@ -65,7 +65,14 @@ export default function AddRoom(props) {
         if (!(onlyValidInput(document.getElementById("roomName").value.toString())))
         {
             setErrorMessage("Can't use characters that are not numbers or english letters");
-            window.alert("Unable to create a room with this name");
+            setShowErrorPopUp(true);
+            setPopUpInfo({
+                name: "Error!",
+                content: <p>Can't use characters that are not numbers or english letters.
+                    <br/> Please choose a name with only english characters and/ or numbers.
+                </p>
+            })
+            // window.alert("Unable to create a room with this name");
             return;
         }
 
@@ -88,14 +95,14 @@ export default function AddRoom(props) {
                 })
                 }
                 else {
-                    setShowErrorPopUp(true);
-                    setPopUpInfo({
-                        name: "Error!",
-                        content: <p>This name is already being used.
-                            <br/> Please use a different name.
-                        </p>
-                    })
-                    setErrorMessage("Choose a different name");
+                setShowErrorPopUp(true);
+                setPopUpInfo({
+                    name: "Error!",
+                    content: <p>This name is already being used.
+                        <br/> Please use a different name.
+                    </p>
+                })
+                setErrorMessage("Choose a different name");
                 }
             }
             else

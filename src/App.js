@@ -27,7 +27,7 @@ function App() {
         return false;
     }
 
-    // Name is OK
+    // Name is OK - add the room
     setRooms([...rooms, room]);
     return true;
     
