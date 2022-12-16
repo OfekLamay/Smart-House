@@ -63,7 +63,6 @@ function App() {
     };
 
     setRooms([...allRooms]);
-    window.alert("Product added!")
   };
 
   const changeProductActivity = (room, product) => {

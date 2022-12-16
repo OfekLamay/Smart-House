@@ -3,11 +3,17 @@ import Product from './Product'
 import { useState } from 'react';
 import AddProduct from './AddProduct';
 import RoomPopup from './RoomPopup';
+import GeneralPopUp from './GeneralPopUp';
 
 export default function Room(props) {
 
     const [showAddProduct, setShowAddProduct] = useState(false)
     const [showRoomInfo, setRoomInfo] = useState(false)
+    const [showProductPopUp, setShowProductPopUp] = useState(false);
+    const [popUpInfo, setPopUpInfo] = useState({
+        name: "Product",
+        content: <p></p>
+    })
 
     const toggleAddRoomPart = () => {
         if (!showAddProduct)
@@ -23,6 +29,10 @@ export default function Room(props) {
 
     const toggleInfo = () => {
         setRoomInfo(!showRoomInfo);
+    }
+
+    const toggleProductPopUp = () => {
+        setShowProductPopUp(!showProductPopUp)
     }
 
     const isProductValid = (product) => {
@@ -49,7 +59,11 @@ export default function Room(props) {
 
         if (document.getElementById("itemSelect").value === "")
         {
-            window.alert("Please choose a product");
+            setPopUpInfo({
+                name: "Error!",
+                content: <p>Please choose a product.</p>
+            })
+            setShowProductPopUp(true);
             return;
         }
 
@@ -58,9 +72,22 @@ export default function Room(props) {
         }
 
         if (isProductValid(product))
+        {
             props.addProduct(props.roomData, product);
+            setPopUpInfo({
+                name: "Product Added!",
+                content: <p>Product added successfully!</p>
+            })
+            setShowProductPopUp(true);
+        }
         else
-            window.alert("Can't add the product to this room");
+        {
+            setPopUpInfo({
+                name: "Error!",
+                content: <p>Can't add the product to this room.</p>
+            })
+            setShowProductPopUp(true);
+        }
     }
 
   return (
@@ -83,6 +110,8 @@ export default function Room(props) {
 
         {showAddProduct ? <AddProduct roomType={props.roomData.roomType} checkAndAddProduct={checkAndAddProduct} /> : null}
         {showRoomInfo ? <RoomPopup close={toggleInfo} room = {props.roomData}/> : null}
+        {showProductPopUp ? <GeneralPopUp close={toggleProductPopUp} info={popUpInfo} /> : null}
+
 
     </div>
   )
