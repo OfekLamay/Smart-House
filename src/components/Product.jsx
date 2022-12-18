@@ -1,27 +1,31 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { changeProductActivity } from '../store/roomSlice';
+import store from '../store/store';
 
 export default function Product(props) {
 
     const [status, setStatus] = useState("Off")
+    const productData = useSelector(state => store.getState().rooms.rooms[props.roomIndex].roomProducts[props.productIndex]) 
 
     useEffect(()=>{
-        if (props.productInfo.active === true)
+        if (productData.active === true)
         {
             setStatus("On");
-            if (props.productInfo.product === "stereo")
+            if (productData.product === "stereo")
                 document.getElementById("myAudio").play()
         }
-      },[])
+      }, [])
 
-    const setBGColor = () => {
-        if (props.productInfo.active === true)
+      const setBGColor = () => {
+        if (productData.active === true)
             return "chartreuse";
         return "red";
     }
 
     const updateProduct = () => {
-        props.toggleProduct(props.roomData, props.productInfo)
+        store.dispatch(changeProductActivity({roomIndex: props.roomIndex, productIndex: props.productIndex }))
         if (status === "Off")
         {
             setStatus("On");
@@ -31,7 +35,7 @@ export default function Product(props) {
         else
         {
             setStatus("Off");
-            if (document.getElementById("myAudio") && props.productInfo.product === "stereo")
+            if (document.getElementById("myAudio") && productData.product === "stereo")
                 document.getElementById("myAudio").pause()
         }
     }
@@ -40,15 +44,15 @@ export default function Product(props) {
         backgroundColor: setBGColor(),
     };
 
-  return (
-    <div className='productStyle' onClick={updateProduct} style={productStyle}>
-        <img className='productSize' src={require(`../public/${props.productInfo.product}${status}.png`)} alt={props.productInfo.product} ></img>
-
-        {props.productInfo.product === "stereo" ? <div>
-            <audio autoPlay={false} loop id='myAudio' src={require('../public/music/BGMNightMarket.mp3')} type='audio/mpeg'/>
-        </div> 
-        : null}
-
-    </div>
-  )
-}
+    return (
+        <div className='productStyle' onClick={updateProduct} style={productStyle}>
+            <img className='productSize' src={require(`../public/${productData.product}${status}.png`)} alt={productData.product} ></img>
+    
+            {productData.product === "stereo" ? <div>
+                <audio autoPlay={false} loop id='myAudio' src={require('../public/music/BGMNightMarket.mp3')} type='audio/mpeg'/>
+            </div> 
+            : null}
+    
+        </div>
+      )
+    }

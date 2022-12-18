@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
+import { addRoom } from '../store/roomSlice';
+import store from '../store/store';
 import GeneralPopUp from './GeneralPopUp';
 import SelectPattern from './SelectPattern';
-
 export default function AddRoom(props) {
 
     const navigate = useNavigate()
@@ -72,7 +73,6 @@ export default function AddRoom(props) {
                     <br/> Please choose a name with only english characters and/ or numbers.
                 </p>
             })
-            // window.alert("Unable to create a room with this name");
             return;
         }
 
@@ -82,10 +82,13 @@ export default function AddRoom(props) {
             {
                 if (props.addRoom({
                     name: name,
+                })) {
+                store.dispatch(addRoom({
+                    name: name,
                     roomType: document.getElementById("roomSelect").value.toString(),
                     color: document.getElementById("chooseColor").value.toString(),
                     roomProducts: []
-                })) {
+                })) 
                 setShowRoomAdded(true);
                 setPopUpInfo({
                     name: "Room Added!",

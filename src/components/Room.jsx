@@ -4,6 +4,9 @@ import { useState } from 'react';
 import AddProduct from './AddProduct';
 import RoomPopup from './RoomPopup';
 import GeneralPopUp from './GeneralPopUp';
+import store from '../store/store';
+import { addProduct } from '../store/roomSlice';
+import { useSelector } from 'react-redux'
 
 export default function Room(props) {
 
@@ -14,6 +17,7 @@ export default function Room(props) {
         name: "Product",
         content: <p></p>
     })
+    const roomData = useSelector(state => store.getState().rooms.rooms[props.index]) 
 
     const toggleAddRoomPart = () => {
         if (!showAddProduct)
@@ -40,13 +44,13 @@ export default function Room(props) {
         // Boiler only in bathroom - not an option unless the room's type is bathroom
         // Max 5 items in each room
 
-        if (props.roomData.roomProducts.length === 5)
+        if (roomData.roomProducts.length === 5)
             return false;
         
         if (product.type === "stereo")
         {
-            for (let i = 0; i < props.roomData.roomProducts.length; i++)
-                if (props.roomData.roomProducts[i].product === "stereo")
+            for (let i = 0; i < roomData.roomProducts.length; i++)
+                if (roomData.roomProducts[i].product === "stereo")
                     return false
 
             return true;
@@ -73,7 +77,7 @@ export default function Room(props) {
 
         if (isProductValid(product))
         {
-            props.addProduct(props.roomData, product);
+            store.dispatch(addProduct({room: roomData, product: product}))
             setPopUpInfo({
                 name: "Product Added!",
                 content: <p>Product added successfully!</p>
@@ -93,14 +97,14 @@ export default function Room(props) {
   return (
     <div>
         <div className='roomData'>
-            Room Name: {props.roomData.name} <br/><br/>
+            Room Name: {roomData.name} <br/><br/>
             <button className='clickNav' onClick={toggleInfo}>Help</button> <br/><br/>
-            Room Type: {props.roomData.roomType} <br/>
+            Room Type: {roomData.roomType} <br/>
         </div>
 
         <div id='products' className='flexboxContainer'>
-            {props.roomData.roomProducts.map((product) => {
-                return <Product key={product.id} productInfo={product} roomData={props.roomData} toggleProduct={props.toggleProduct}/>
+            {roomData.roomProducts.map((product, index) => {
+                return <Product key={product.id} productIndex={index} roomIndex={props.index} />
             })}
             <br/><br/>
         </div>
