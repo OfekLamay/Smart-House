@@ -4,7 +4,11 @@ import { addRoom } from '../store/roomSlice';
 import store from '../store/store';
 import GeneralPopUp from './GeneralPopUp';
 import SelectPattern from './SelectPattern';
+import { useSelector } from 'react-redux';
+
 export default function AddRoom(props) {
+
+    const rooms = useSelector(state => store.getState().rooms.rooms) 
 
     const navigate = useNavigate()
     const options = [
@@ -57,6 +61,16 @@ export default function AddRoom(props) {
         return true;
     }
 
+    const canAddRoom = (room) => {
+        // Check if the name is not a duplicate
+        for (let i = 0; i < rooms.length; i++)
+          if (rooms[i].name === room.name)
+            return false;
+    
+        // Name is OK
+        return true;
+      };
+
     const toggleError = () => {
         setShowErrorPopUp(!showErrorPopUp)
     }
@@ -80,7 +94,7 @@ export default function AddRoom(props) {
         {
             if (document.getElementById("roomSelect").value.toString() !== "")
             {
-                if (props.addRoom({
+                if (canAddRoom({
                     name: name,
                 })) {
                 store.dispatch(addRoom({
