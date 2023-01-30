@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import { addRoom } from '../store/roomSlice';
 import store from '../store/store';
@@ -7,12 +7,6 @@ import SelectPattern from './SelectPattern';
 import { useSelector } from 'react-redux';
 
 export default function AddRoom(props) {
-
-    useEffect(()=>{
-        fetch('/api/tasks')
-        .then(response => response.json())
-        .then(data => console.log(data))
-    }, [])
 
     const rooms = useSelector(state => store.getState().rooms.rooms) 
 

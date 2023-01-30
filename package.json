@@ -2,7 +2,6 @@
   "name": "SmartHouse",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://tasks-management-server.onrender.com",
   "homepage": "http://OfekLamay.github.io/Smart-House",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
